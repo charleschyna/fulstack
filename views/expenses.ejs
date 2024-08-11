@@ -1,0 +1,16 @@
+<% layout('layout') %>
+
+<h1>Your Expenses</h1>
+
+<form action="/expenses/add" method="POST">
+    <input type="number" step="0.01" name="amount" placeholder="Amount" required>
+    <input type="date" name="date" required>
+    <input type="text" name="category" placeholder="Category" required>
+    <button type="submit">Add Expense</button>
+</form>
+
+<ul>
+    <% expenses.forEach(expense => { %>
+        <li><%= expense.date %> - <%= expense.category %> - $<%= expense.amount %></li>
+    <% }); %>
+</ul>
